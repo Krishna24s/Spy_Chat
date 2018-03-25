@@ -12,6 +12,33 @@ question = "Do you want to continue as " + spy.salutation + " " + spy.name + " (
 
 existing = raw_input(question)
 
+STATUS_MESSAGES=["Krishna", "Ghutru"]
+
+# Function to add status
+def add_status():
+    updated_status_message = None
+    if spy.current_status_message != None:
+        print "Your current status message is " + spy.current_status_message + "\n"
+    else:
+        print "You don\'t have any status message currently \n"
+    default = raw_input("Do you want to select from the older status (y/n)? ")
+    # upper is used to convert the input into upper case
+    if default.upper() == "N":
+        new_status_message = raw_input("What status message do you want to set?")
+
+        if len(new_status_message) > 0:
+            updated_status_message = new_status_message
+            STATUS_MESSAGES.append(new_status_message)
+    elif default.upper() == "Y":
+        item_position = 1
+        for message in STATUS_MESSAGES:
+            print '%d. %s' % (item_position, message)
+            item_position = item_position + 1
+        message_selection = int(raw_input("\nChoose from the above messages "))
+        if len(STATUS_MESSAGES) >= message_selection:
+            updated_status_message = STATUS_MESSAGES[message_selection - 1]
+    return updated_status_message
+
 
 # Function to start chat
 def start_chat(spy):
