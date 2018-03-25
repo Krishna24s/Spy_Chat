@@ -2,11 +2,18 @@ from Spy_details import spy, Spy
 from datetime import datetime
 
 print "Hello!"
+# This will print Hello!
 
 print'let\'s get started'
+# Project will get started
+
 question = "Do you want to continue as " + spy.salutation + " " + spy.name + " (Y/N)? "
+# This will ask user to continue as Spy Name with salutation
+
 existing = raw_input(question)
 
+
+# Function to start chat
 def start_chat(spy):
     print "Authentication complete. Welcome " + spy.name + " age: " \
           + str(spy.age) + " and rating of: " + str(spy.rating) + " Proud to have you onboard"
